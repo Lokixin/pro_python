@@ -142,3 +142,28 @@ Finalmente, queda actualizar nuestra rama local. Para ello usaremos el comando:
 ```bash
 git pull --rebase
 ```
+
+## 2. Modelos con Pydantic
+
+En esta sección añadimos un nuevo concepto: los modelos. Estos definen la estructura que 
+debe tener el cuerpo de una Request y de una Response. Para definirlos, usamos la 
+librería **pydantic** que nos permite generar estos modelos muy rápidamente. Otras ventajas
+son que pydantic incluye validación de nuestros datos y serialización automática con
+FastAPI. 
+
+Ejemplo de modelo: 
+
+```python
+from pydantic import BaseModel, EmailStr
+
+
+class UserIn(BaseModel):
+    name: str
+    surname: str
+    age: int
+    email: EmailStr
+```
+
+Podemos añadir estos modelos como parámetros de entrada y salida de nuestros endpoints
+en FastAPI. Automáticamente, esta se encargará de comprobar que los datos siguen el modelo
+requerido.
