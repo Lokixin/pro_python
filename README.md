@@ -110,3 +110,35 @@ remoto. Por tanto, tendremos que ejecutar el siguiente comando:
 ```
 
 De esta forma vincularemos la rama local con la remota.
+
+
+### 1.1 Merge Request
+
+Después de haber subido los cambios de una nueva rama, deberemos revisarlos. Para 
+ello, iremos a nuestro repositorio de GitHub y veremos que aparece una nueva opción: 
+
+<span style="color:white; background-color:green; padding: 8px; border-radius: 12px">
+Compare & Pull Request
+</span>
+
+Clicaremos esta opción y revisaremos los cambios en nuestro código. Una vez nos hayamos
+asegurado de que todo es correcto, haremos clik en `Create Pull Request`. 
+
+Después, tendremos que clicar en la opción `Accept pull request & Merge`. De esta forma, 
+actualizaremos la rama main con todos los cambios realizados en la rama de la tarea. 
+
+Al finalizar este proceso, nuestra rama main estará actualizada con los cambios más
+recientes. Para terminar, podemos hacer un poco de limpieza y eliminar la rama local 
+y la remota que ya no usaremos (pues hemos acabado la tarea):
+
+```bash
+git checkout main # volvemos a la rama principal
+git branch -d origin DIM-2/setup-inicial-de-fastapi # remota
+git branch -d DIM-2/setup-inicial-de-fastapi # local
+```
+
+Finalmente, queda actualizar nuestra rama local. Para ello usaremos el comando: 
+
+```bash
+git pull --rebase
+```
