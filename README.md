@@ -8,7 +8,7 @@ controlador de gastos e ingresos, que permita realizar analíticas. Las tecnolog
 - **Git&GitHub:** Gestor de versiones de código. 
 - **Docker:** Software para trabajar con contenedores. 
 
-## 1. Preparación del entorno
+## 0. Preparación del entorno
 
 Antes de empezar a programar, necesitamos realizar algunos preparativos (todas las herramientas son gratuitas): 
 
@@ -64,3 +64,49 @@ git push -u origin main
 
 Dónde origin es el nombre que le hemos dado al repositorio remoto y main el nombre de la 
 rama (branch) a la cual mandamos los cambios.
+
+
+## 1. Introducción a FastAPI
+
+Para empezar a trabajar con FastAPI primero tenemos que instalar algunos paquetes: 
+
+```bash
+pip install fastapi "uvicorn[standard]"
+```
+
+Las nuevas funcionalidades de nuestro programa las vamos a crear en una nueva rama. 
+Para ello usaremos el siguiente comando, que crea una nueva rama y nos cambiamos a ella: 
+
+```bash
+git checkout -b "TASK-2/setup-inicial-fastapi"
+```
+
+En este capítulo aprenderemos lo básico sobre FastAPI y trabajaremos con los `path parameters` 
+y los `query parameters`. Esto nos permite recibir información a través de la URL y definir 
+tanto campos obligatorios como opcionales. 
+
+Para ejecutar la aplicación, deberemos usar el siguiente comando: 
+
+```bash
+uvicorn expense_tracker.fastapi_app:app --reload
+```
+
+Podremos visualizar la interfaz autogenerada por FastAPI des de la URL: 
+<http://localhost:8000/docs/>
+
+Una vez terminado el ejercicio, deberemos subir nuestros cambios al repositorio:
+
+```bash
+git add -A
+git commit -m "TASK-2 Mensaje descriptivo de la tarea"
+git push
+```
+
+No obstante, git nos avisará de un error. Pues la rama local no existe en el repositorio 
+remoto. Por tanto, tendremos que ejecutar el siguiente comando: 
+
+```bash
+ git push --set-upstream origin DIM-2/setup-inicial-de-fastapi
+```
+
+De esta forma vincularemos la rama local con la remota.
